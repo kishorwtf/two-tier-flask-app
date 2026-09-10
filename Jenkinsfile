@@ -39,4 +39,17 @@ pipeline{
             }
         }
     }
+    
+post {
+    success {
+        emailext body: 'Good News! : The build was successful!',
+                 subject: 'Build Successful',
+                 to: 'kishorwtf@gmail.com'
+    }
+    failure {
+        emailext body: 'Bad News! : The build has failed',
+                 subject: 'Build Failed',
+                 to: 'kishorwtf@gmail.com'
+    }
+}
 }
