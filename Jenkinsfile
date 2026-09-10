@@ -1,3 +1,4 @@
+@Library ("Shared") _
 pipeline{
     
     agent any;
@@ -5,7 +6,9 @@ pipeline{
     stages{
         stage("Code Clone"){
             steps{
-                git url: "https://github.com/kishorwtf/two-tier-flask-app.git", branch: "master"
+                script {
+                    clone("https://github.com/kishorwtf/two-tier-flask-app.git", "master")
+                }
             }
         }
         stage("Build"){
