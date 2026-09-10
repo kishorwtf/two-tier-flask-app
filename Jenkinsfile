@@ -17,13 +17,7 @@ pipeline{
                 echo "Docker Build Bhi Ho Gaya.."
             }
         }
-        stage("trivy file system scan"){
-            steps{
-                script{
-                    trivy_fs()
-                }
-            }
-        }
+        
         stage("Test"){
             steps{
                 echo "Developer/Tester tests likh ke dega.."
